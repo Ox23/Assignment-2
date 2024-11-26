@@ -62,6 +62,11 @@ public class AmazonProduct {
         return name;
     }
 	
+    // Getter for the bestsellers list
+    public static List<AmazonProduct> getBestsellers() {
+        return bestsellers;
+    }
+	
 	
 	public void createList(String csvFile) {
 		
