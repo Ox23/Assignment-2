@@ -220,6 +220,10 @@ public class AmazonProduct {
         // 1. Find the product by productId in the bestsellers list.
         // 2. Remove the product from the list if found.
     }
+	public int getActualPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	

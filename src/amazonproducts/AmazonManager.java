@@ -68,13 +68,15 @@ public class AmazonManager {
 	                 /*
 	             case "K":
 	                 addProductToCart(); // Add product to cart
-	                 break;
+	                 break;*/
 	             case "L":
 	                 removeProductFromCart(); // Remove product from cart
 	                 break;
+	                 
 	             case "M":
 	                 showProductsInCart(); // Show products in cart
 	                 break;
+	                 /*
 	             case "O":
 	                 addCommentToProduct(); // Add comment to purchased products
 	                 break;
@@ -99,7 +101,11 @@ public class AmazonManager {
 	     // Delegate product listing to AmazonProductList class.
 	     AP.printList();
 	 }
-	
+	 public void removeProductFromCart() {
+		 System.out.print("Enter product ID to remove it from your cart: ");
+		 int productId = input.nextInt();
+		 AC.removeProductFromCart(productId); 
+	 }
 	 public void searchProducts() {
 	     // Delegate search functionality to AmazonProductList class.
 	     System.out.print("Enter product name to search: ");
@@ -108,6 +114,11 @@ public class AmazonManager {
 	 }
 
 
+	 public void showProductsInCart() {
+	     // Delegate product listing to AmazonProductList class.
+	     AC.showCart();
+	 }
+	
 	 public void addProductToWishList() {
 		 System.out.print("Enter product ID to add it to your wish list: ");
 		 int id = input.nextInt();

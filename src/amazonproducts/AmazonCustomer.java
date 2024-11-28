@@ -11,6 +11,7 @@ public class AmazonCustomer {
     private List<AmazonProduct> wishList = new ArrayList<>(); // Wishlist for the customer
     //private List<AmazonCredit> credits = new ArrayList<>(); // List of credits the customer holds
 	private List<AmazonCustomer> customers = new ArrayList<>(); // List to store all customers
+	private List<AmazonCartItem> List = new ArrayList<>(); // List of items in the cart
 	//AmazonCustomer AC = new AmazonCustomer();
 
 
@@ -47,21 +48,10 @@ public class AmazonCustomer {
     
 	// Displays the customers
 	public void showCustomers() {
-	    if (customers.isEmpty()) {
-	        System.out.println("No customers available.");
-	    } else {
-	        for (AmazonCustomer customer : customers) {
-	            System.out.println("Customer ID: " + customer.getId()); // need to add so it displays name and address as well
-	        }
+	    
 	    }
-	}
     
-    
-    
-    
-    
-    
-    
+
     // Wishlist Methods:
 
     // Adds a product to the wishlist by its ID.
@@ -164,7 +154,7 @@ public class AmazonCustomer {
     
     
     
-    /*
+    
     
     
     // Cart Methods:
@@ -174,11 +164,41 @@ public class AmazonCustomer {
     }
 
     // Removes a product from the cart.
-    public void removeProductFromCart(AmazonProduct product) {
-    }
+    public void removeProductFromCart(int productId) {
+        if (List.isEmpty()) {
+            System.out.println("The cart is empty. No products to remove.");
+            return;
+        }
+
+        AmazonCartItem itemToRemove = null;
+
+        // Iterate over the cart items
+        for (AmazonCartItem item : List) {
+            if (item.getProduct().getId() == productId) { // Use getId() to access product ID
+                itemToRemove = item;
+                break;
+            }
+        }
+
+    	    if (itemToRemove != null) {
+    	        List.remove(itemToRemove);
+    	        System.out.println("Product with ID " + id + " has been removed from the cart.");
+    	    } else {
+    	        System.out.println("Product with ID " + id + " is not in the cart.");
+    	    }
+    	}
+    
 
     // Displays the cart.
     public void showCart() {
+    	 if (List.isEmpty()) {
+             System.out.println("Your cart is empty.");
+         } else {
+             System.out.println("Your cart contains the following products:");
+             for (AmazonCartItem product : List) {
+                 System.out.println("- " + product.toString());
+             }
+         }
     }
 
     // Moves all items from the cart to the wishlist.
@@ -187,7 +207,7 @@ public class AmazonCustomer {
 
     
     
-    
+    /*
     
     
     
