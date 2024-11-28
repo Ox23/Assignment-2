@@ -48,6 +48,13 @@ public class AmazonCustomer {
     
 	// Displays the customers
 	public void showCustomers() {
+        if (customers.isEmpty()) {
+	        System.out.println("No customers available.");
+	    } else {
+	        for (AmazonCustomer customer : customers) {
+	            System.out.println("Customer ID: " + customer.getId()); // need to add so it displays name and address as well
+	        }
+	    }
 	    
 	    }
     
@@ -129,15 +136,6 @@ public class AmazonCustomer {
         return null; // Product not found in wishlist
     }
     
-    private AmazonCustomer findCustomertById(int id) {
-        // Static method to get the bestsellers list from AmazonProduct
-        for (AmazonCustomer customer : getCustomers()) {
-            if (customer.getId() == id) {
-                return customer;
-            }
-        }
-        return null; // Product not found
-    }
     
     // Getter for the bestsellers list
     public List<AmazonCustomer> getCustomers() {
@@ -161,6 +159,10 @@ public class AmazonCustomer {
 
     // Adds an item to the cart.
     public void addItemInCart(AmazonCartItem item) {
+
+
+
+        
     }
 
     // Removes a product from the cart.
